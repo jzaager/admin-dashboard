@@ -398,11 +398,11 @@ body {
   border-radius: 36px;
   padding: 2em;
   border: 1px solid #fff;
-  height: auto;
+  height: 100%;
   width: 100%;
 
   display: grid;
-  grid-template-columns: 0.5fr 2fr 0.5fr;
+  grid-template-columns: 0.35fr 2fr 0.5fr;
   grid-template-rows: auto minmax(0, 1fr);
   gap: 1em 2em;
 }
@@ -439,8 +439,14 @@ body {
 }
 
 .main-content {
-  grid-column: 2 / 3;
+  grid-column: 2 / -1;
   grid-row: 2 / -1;
+
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 15px 1fr 15px 1fr;
+  gap: 1em;
+  align-items: start;
 }
 
 .cards-container {
@@ -450,6 +456,9 @@ body {
 
   height: 100%;
   padding-bottom: 2em;
+
+  grid-column: 1;
+  grid-row: 2 / -1;
 }
 
 .project-card {
@@ -466,6 +475,16 @@ body {
 
 .project-card.sidebar-card {
   border: none;
+}
+
+.announcement-card {
+  grid-column: 2;
+  grid-row: 2 / 3;
+}
+
+.trending-card {
+  grid-column: 2;
+  grid-row: 4;
 }
 
 .sidebar > h1 {
@@ -488,6 +507,16 @@ body {
 
 .main-header > .profile-group {
   justify-self: end;
+}
+
+#announcements {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+#trending {
+  grid-column: 2;
+  grid-row: 3;
 }
 
 /*** typography ***/
@@ -547,6 +576,10 @@ h3 {
 
 .sidebar li + li {
   margin-top: 10px;
+}
+
+.trending-user {
+  line-height: 1.1;
 }
 
 /*** icons ***/
