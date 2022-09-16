@@ -364,9 +364,11 @@ template {
 :root {
   --clr-primary: rgba(153, 246, 228, 1);
   --clr-primary-dark: rgba(40, 78, 83, 1);
+
   --clr-bg-dark: rgba(14, 199, 210, 0.6);
 
   --clr-secondary: rgba(146, 150, 240, 1);
+  --clr-secondary-dark: rgb(105, 111, 221);
 
   --clr-neutral-card-bg: #fff;
   --clr-neutral-spacer: rgba(217, 217, 217, 1);
@@ -388,7 +390,8 @@ html {
 
 body {
   box-sizing: content-box;
-  background: linear-gradient(to bottom right, var(--clr-primary), var(--clr-bg-dark));
+  background: linear-gradient(to bottom right, var(--clr-primary), var(--clr-secondary));
+  background-attachment: fixed;
   padding: 0.75rem;
 }
 
@@ -396,7 +399,7 @@ body {
   box-sizing: border-box;
   background-color: rgba(255, 255, 255, 0.6);
   border-radius: 36px;
-  padding: 2em;
+  padding: 1em 2em 2em;
   border: 1px solid #fff;
   height: 100%;
   width: 100%;
@@ -408,24 +411,19 @@ body {
 }
 
 .sidebar {
-  border-left: 1px solid var(--clr-primary-dark);
-  border-radius: 15px;
   padding-right: 0;
-  padding-left: 1em;
   height: 100%;
 
   grid-row: 1 / -1;
 
   display: grid;
-  grid-template-columns: 10% 1fr;
   grid-template-rows: repeat(3, min-content);
-  gap: 2.5em 10px;
+  gap: 3.5em 10px;
 }
 
 .main-header {
   border-bottom: 1px solid var(--clr-primary-dark);
-  border-radius: 26px;
-  padding-bottom: 2em;
+  padding-bottom: 1em;
   padding-inline: 2em;
 
   grid-column: 2 / 4;
@@ -435,7 +433,7 @@ body {
   grid-template-columns: 2fr 1fr;
   grid-auto-rows: min-content;
   align-items: center;
-  gap: 2em;
+  gap: 1em 2em;
 }
 
 .main-content {
@@ -443,8 +441,8 @@ body {
   grid-row: 2 / -1;
 
   display: grid;
-  grid-template-columns: 3fr 1fr;
-  grid-template-rows: 15px 1fr 15px 1fr;
+  grid-template-columns: 3.5fr 1fr;
+  grid-template-rows: 20px 1fr 20px 1fr;
   gap: 1em;
   align-items: start;
 }
@@ -467,10 +465,24 @@ body {
   border-left: 7px solid var(--clr-secondary);
   padding: 1.5em;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card > .card-icons {
+  align-self: flex-end;
+  position: absolute;
+  top: 78%;
+}
+
+.card-icons > img + img {
+  margin-left: 1.3em;
 }
 
 .cards-container .project-card {
-  max-height: 17em;
+  max-height: 15em;
 }
 
 .project-card.sidebar-card {
@@ -498,15 +510,71 @@ body {
   grid-column: 2 / -1;
 }
 
-.main-header > .profile-group,
+.sidebar img {
+  margin-right: 10%;
+}
+
+.button-group,
+.profile-group {
+  align-items: center;
+  justify-self: end;
+}
+
 .main-header > .button-group {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.1em;
+  gap: 1.5em;
 }
 
-.main-header > .profile-group {
-  justify-self: end;
+.profile-group {
+  display: grid;
+  grid-template-columns: 24px 50px 1fr;
+  gap: 1.8em;
+
+  font-weight: 600;
+}
+
+.profile-greeting-group {
+  display: grid;
+  grid-template-columns: 80px 2fr;
+  align-items: center;
+  gap: 0 0.8em;
+
+  font-weight: 600;
+  line-height: 1;
+}
+
+.profile-greeting-group > span,
+.profile-greeting-group > p {
+  grid-column: 2;
+}
+
+.profile-greeting-group > span {
+  align-self: end;
+}
+
+.profile-greeting-group > p {
+  font-size: 1.5rem;
+  letter-spacing: 0.5px;
+}
+
+.search-group {
+  display: flex;
+}
+
+input[type="search"] {
+  border-radius: 16px;
+  border: none;
+  height: 30px;
+  max-width: 600px;
+  padding: 1em 1.5em;
+
+  flex: 1;
+}
+
+input[type="search"]:focus,
+.btn:focus {
+  outline: 2px solid var(--clr-bg-dark);
 }
 
 #announcements {
@@ -575,19 +643,52 @@ h3 {
 }
 
 .sidebar li + li {
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .trending-user {
   line-height: 1.1;
 }
 
+/*** components ***/
+
+.button-group > .btn {
+  --clr-primary-dark: rgb(102, 176, 185);
+  background-color: var(--clr-primary-dark);
+  color: white;
+  font-weight: 600;
+  padding: 0.65em 2em;
+
+  border-radius: 36px;
+  border: none;
+}
+
+.button-group > .btn:hover {
+  cursor: pointer;
+  background-color: var(--clr-secondary-dark);
+}
+
 /*** icons ***/
 
 .svg-icon {
   width: 24px;
+  vertical-align: bottom;
+}
+
+.card-icons img {
+  color: rgb(41, 41, 41);
 }
 
 #search {
-  vertical-align: bottom;
+  margin-right: 15px;
+}
+
+#account-profile-pic {
+  width: 50px;
+}
+
+.profile-greeting-group > #account-profile-pic  {
+  width: 80px;
+
+  grid-row: span 2;
 }
