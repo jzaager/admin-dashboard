@@ -393,6 +393,7 @@ body {
   background: linear-gradient(to bottom right, var(--clr-primary), var(--clr-secondary));
   background-attachment: fixed;
   padding: 0.75rem;
+  
 }
 
 .container {
@@ -648,6 +649,20 @@ h3 {
 
 .trending-user {
   line-height: 1.1;
+
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  gap: 0 1em;
+  align-items: center;
+}
+
+.trending-user-info {
+  grid-column: 2;
+
+}
+
+.trending-user > span {
+  display: block;
 }
 
 /*** components ***/
@@ -691,4 +706,12 @@ h3 {
   width: 80px;
 
   grid-row: span 2;
+}
+
+/*** MEDIA QUERIES ***/
+
+@media screen and (min-width: 1500px) {
+  .cards-container {
+    row-gap: 0;
+  }
 }
