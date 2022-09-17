@@ -864,6 +864,8 @@ h3 {
 
   .project-card > .card-icons {
     align-self: center;
+    width: 100%;
+    text-align: center;
   }
 
 }
