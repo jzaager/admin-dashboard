@@ -777,6 +777,7 @@ h3 {
   .container {
     margin-top: 3em;
     padding-top: 0.5em;
+    padding-bottom: 1.2em;
   }
 
   .main-header {
@@ -788,6 +789,7 @@ h3 {
 
     line-height: 1;
     position: relative;
+    padding-bottom: 0;
   }
 
   .cards-container::before {
