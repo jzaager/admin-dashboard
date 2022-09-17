@@ -793,7 +793,7 @@ h3 {
   }
 
   .cards-container::before {
-    content: url(/icons/magnify.svg);
+    content: url(icons/magnify.svg);
     width: 24px;
 
     position: fixed;
@@ -807,10 +807,6 @@ h3 {
 
   .card-text {
     margin-bottom: 20%;
-  }
-
-  .project-card > .card-icons {
-    align-self: center;
   }
 
   .project-card > .article-title {
@@ -837,7 +833,7 @@ h3 {
   }
 
   .container::before {
-    content: url(/icons/account-circle-outline.svg);
+    content: url(icons/account-circle-outline.svg);
     width: 50px;
 
     position: absolute;
@@ -858,7 +854,7 @@ h3 {
   }
 
     .main-content::before {
-    content: url(/icons/bell-ring-outline.svg);
+    content: url(icons/bell-ring-outline.svg);
     width: 45px;
 
     position: absolute;
