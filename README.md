@@ -13,4 +13,4 @@ Inspiration for the design was a combination of The Odin Project's template and 
 
 Most effort was put into creating the grid layout on desktop, but I did include a few media queries for extra practice in creating responsive designs.
 
-**In the future, I would tackle this project by initially arranging the mobile design, then adjusting for larger screen sizes**
+**In the future, I would tackle this project by initially arranging the mobile design, then adjusting for larger screen sizes.**
